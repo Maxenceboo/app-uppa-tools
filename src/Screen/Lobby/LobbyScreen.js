@@ -1,12 +1,9 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {
   Text,
   View,
-  Image,
-  TextInput,
   Pressable,
-  TouchableOpacity,
 } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from "./LobbyStyle";

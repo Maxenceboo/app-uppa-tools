@@ -3,13 +3,9 @@ import React, { useState } from "react";
 import {
   Text,
   View,
-  Image,
-  TextInput,
   Pressable ,
-  TouchableOpacity,
 } from "react-native";
 import styles from "./UserHandlerStyle";
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 

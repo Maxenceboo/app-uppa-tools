@@ -1,11 +1,7 @@
-import { StatusBar } from "expo-status-bar";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Text,
   View,
-  Image,
-  TextInput,
-  TouchableOpacity,
 } from "react-native";
 
 

@@ -1,5 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer as Nav} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -9,7 +7,6 @@ import Lobby from './src/Screen/Lobby/LobbyScreen';
 import UserHandler from './src/Screen/UserHandler/UserHandlerScreen';
 import Profile from './src/Screen/Profile/ProfileScreen';
 import Edt from './src/Screen/Edt/EdtScreen';
-import { header } from 'express/lib/request';
 
 
 const {Navigator, Screen} = createNativeStackNavigator();
