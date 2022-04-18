@@ -15,7 +15,6 @@ export default function UserHandler ({ navigation }) {
     return(
         <View style={styles.container}>
             <StatusBar style="auto" />
-            <Text>user handler Screen</Text>
             <Pressable  onPress={() => navigation.navigate('Signup')} style={styles.styleBtn}>
                 <Text style={styles.textBtn}>Go to signup</Text>
             </Pressable>

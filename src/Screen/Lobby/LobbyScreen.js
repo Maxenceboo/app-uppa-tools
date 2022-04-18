@@ -25,8 +25,6 @@ export default function Lobby ({ navigation }) {
       <View style={styles.container}>
 
         <StatusBar style="auto" />
-
-        <Text>Lobby Screen</Text>
         
         <Pressable onPress={() => navigation.navigate('User Handler')} style={styles.styleBtn}>
           <Text style={styles.textBtn}>Go to User Handler</Text> 
