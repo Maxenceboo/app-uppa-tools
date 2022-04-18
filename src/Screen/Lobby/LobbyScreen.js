@@ -5,7 +5,7 @@ import {
   View,
   Image,
   TextInput,
-  Button,
+  Pressable,
   TouchableOpacity,
 } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -20,36 +20,26 @@ export default function Lobby ({ navigation }) {
       .then(res => {
         if (res === null){
           return
-        }else navigation.navigate('Home')
+        }else navigation.navigate('User Handler')
       })
   },[])
-
+  navigation.setOptions({headerStyle: {backgroundColor: '#2D9E6F',}})
   return(
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={styles.container}>
 
         <StatusBar style="auto" />
 
         <Text>Lobby Screen</Text>
-        <Button
-        title="Go to Signup"
-        onPress={() => navigation.navigate('Signup')}
-        />
-        <Button
-        title="Go to Signin"
-        onPress={() => navigation.navigate('Signin')}
-        />
-        <Button
-        title="Go to Home"
-        onPress={() => navigation.navigate('Home')}
-        />
-        <Button
-        title="Go to Profile"
-        onPress={() => navigation.navigate('Profile')}
-        />
-        <Button
-        title="Go to edt"
-        onPress={() => navigation.navigate('Edt')}
-        />
+        
+        <Pressable onPress={() => navigation.navigate('User Handler')} style={styles.styleBtn}>
+          <Text style={styles.textBtn}>Go to User Handler</Text> 
+        </Pressable>
+        <Pressable onPress={() => navigation.navigate('Profile')} style={styles.styleBtn}>
+          <Text style={styles.textBtn}>Go to Profile</Text>
+        </Pressable>
+        <Pressable onPress={() => navigation.navigate('Edt')} style={styles.styleBtn}>
+          <Text style={styles.textBtn}>Go to edt</Text>
+        </Pressable>
     </View>
   )                 
 }

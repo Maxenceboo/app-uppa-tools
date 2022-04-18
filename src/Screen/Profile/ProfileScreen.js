@@ -62,6 +62,7 @@ export default function Profile ({ navigation }) {
             })
         }
     }
+    navigation.setOptions({headerStyle: {backgroundColor: '#2D9E6F',}})
 
     console.log(user)
     return (

@@ -31,6 +31,7 @@ export default function Edt ({ navigation }) {
     },[user])
 
     console.log(edt)
+    navigation.setOptions({headerStyle: {backgroundColor: '#2D9E6F',}})
 
     return(
         <View style={styles.body}>

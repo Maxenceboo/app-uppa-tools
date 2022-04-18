@@ -31,6 +31,7 @@ export default function Signin({ navigation }) {
     navigation.navigate('Profile')
   }
 
+  navigation.setOptions({headerStyle: {backgroundColor: '#2D9E6F',}})
 
   return (
     <View style={styles.container}>

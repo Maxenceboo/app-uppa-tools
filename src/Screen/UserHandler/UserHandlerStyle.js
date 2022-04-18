@@ -2,12 +2,6 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
   StyleSheet,
-  Text,
-  View,
-  Image,
-  TextInput,
-  Button,
-  TouchableOpacity,
 } from "react-native";
 
 
@@ -27,7 +21,6 @@ const styles = StyleSheet.create({
   },
   styleBtn:{
     width: "20rem",
-    // height: "40rem",
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 12,
@@ -38,6 +31,7 @@ const styles = StyleSheet.create({
     marginVertical: "1rem",
     
   },
+  
 })
 
 export default styles;
