@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useEffect, useState } from "react" // import useEffect, useState
+import AsyncStorage from '@react-native-async-storage/async-storage';   //import asyncStorage from '@react-native-async-storage/async-storage';
 
 
 function isJson(res) {

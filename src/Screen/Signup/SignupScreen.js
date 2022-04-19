@@ -10,6 +10,7 @@ import {
 import axios from "../../axios";
 import styles from "./SignupStyle";
 
+
 export default function Signup ({ navigation }) {
   const [email, setEmail] = useState("")
   const [password2, setPassword2] = useState("")
@@ -56,7 +57,8 @@ export default function Signup ({ navigation }) {
 
   return (
     <View style={styles.container}>
-
+      <StatusBar style="auto" />
+      
       <Image style={styles.image} source={require("../asset/Logo2.png")}/>
 
       <StatusBar style="auto" />

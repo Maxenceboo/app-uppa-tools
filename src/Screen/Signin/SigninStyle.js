@@ -17,8 +17,9 @@ const styles = StyleSheet.create({
   
     image: {
       marginBottom: 40,
-      width: "50%",
-      height: "47%"
+      height: "30%",
+      width: "60%",
+      resizeMode: 'contain'
     },
   
     inputView: {
