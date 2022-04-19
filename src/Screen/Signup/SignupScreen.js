@@ -47,7 +47,7 @@ export default function Signup ({ navigation }) {
         email: email,
       });
     }
-    navigation.navigate('Profile')
+    navigation.navigate('Signin')
   }
 
 
