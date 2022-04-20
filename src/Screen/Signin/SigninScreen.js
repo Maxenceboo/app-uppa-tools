@@ -1,36 +1,36 @@
-import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import { StatusBar } from "expo-status-bar";  // import the StatusBar component
+import React, { useState } from "react";  // import useState
 import {
   Text,
   View,
   Image,
   TextInput,
   TouchableOpacity,
-} from "react-native";
+} from "react-native";  // import Text, View, Image, TextInput, TouchableOpacity
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage'; // import asyncStorage from '@react-native-async-storage/async-storage';
 
-import styles from "./SigninStyle";
-import axios from "../../axios";
+import styles from "./SigninStyle"; // import styles from "./SigninStyle.js"
+import axios from "../../axios";  // import axios
 
 
 
-export default function Signin({ navigation }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+export default function Signin({ navigation }) {  // create the SigninScreen component
+  const [email, setEmail] = useState(""); // create useState hook to get the email
+  const [password, setPassword] = useState(""); // create useState hook to get the password
 
-  const Login = async () => {
-    const {data} = await axios.post('/auth/signin',{
+  const Login = async () => { // create the Login function
+    const {data} = await axios.post('/auth/signin',{  // send the data to the server and get the response in data
         password: password,
         email: email,
       }
     )
-    await AsyncStorage.setItem('token', data.token)
-    await AsyncStorage.setItem('user', JSON.stringify(data.user))
-    navigation.navigate('Profile')
+    await AsyncStorage.setItem('token', data.token) // save the token in asyncStorage
+    await AsyncStorage.setItem('user', JSON.stringify(data.user)) // save the user in asyncStorage
+    navigation.navigate('Profile')  // navigate to the ProfileScreen
   }
 
-  navigation.setOptions({headerStyle: {backgroundColor: '#2D9E6F',}})
+  navigation.setOptions({headerStyle: {backgroundColor: '#2D9E6F',}}) // set the header style to green
 
   return (
     <View style={styles.container}>

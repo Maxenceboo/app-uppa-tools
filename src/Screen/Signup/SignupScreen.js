@@ -1,30 +1,30 @@
-import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import { StatusBar } from "expo-status-bar";  // import the StatusBar component
+import React, { useState } from "react";  // import useState
 import {
   Text,
   View,
   Image,
   TextInput,
   TouchableOpacity,
-} from "react-native";
-import axios from "../../axios";
-import styles from "./SignupStyle";
+} from "react-native";  // import Text, View, Image, TextInput, TouchableOpacity
+import axios from "../../axios";  // import axios
+import styles from "./SignupStyle"; // import styles from "./SignupStyle.js"
 
 
-export default function Signup ({ navigation }) {
-  const [email, setEmail] = useState("")
-  const [password2, setPassword2] = useState("")
-  const [password1, setPassword1] = useState("")
-  const samePasswords = password1 === password2
+export default function Signup ({ navigation }) { // create the SignupScreen component
+  const [email, setEmail] = useState("")  // create useState hook to get the email
+  const [password2, setPassword2] = useState("")  // create useState hook to get the password
+  const [password1, setPassword1] = useState("")    // create useState hook to get the password
+  const samePasswords = password1 === password2 // create a boolean to know if the passwords are the same
 
 
 
   
-  const Check = () => {
-    if (password1 === "" || password2 === ""){
+  const Check = () => { // create the Check function
+    if (password1 === "" || password2 === ""){  // if the password is empty
 
-      return(<View><Text style={styles.checkMdpGood}>            </Text></View>)
-    } else if ( password1 === password2){
+      return(<View><Text style={styles.checkMdpGood}>            </Text></View>)  // return a text saying that the password is empty
+    } else if ( password1 === password2){ // if the password is the same
 
       return (
         <View><Text style={styles.checkMdpGood}>Passwords are identical</Text></View>
@@ -37,23 +37,22 @@ export default function Signup ({ navigation }) {
   }
   
   
-  const Push = () => {
-    console.log({samePasswords})
-    if (password1 === "" || password2 === ""){
+  const Push = () => {  // create the Push function
+    if (password1 === "" || password2 === ""){  // if the password is empty
       return;
     }
-    if(samePasswords){
-      axios.post('/auth/signup', {
+    if(samePasswords){  // if the passwords are the same
+      axios.post('/auth/signup', {  // send the data to the server and get the response in data
         password: password1,
         email: email,
       });
     }
-    navigation.navigate('Signin')
+    navigation.navigate('Signin') // navigate to the SigninScreen
   }
 
 
 
-  navigation.setOptions({headerStyle: {backgroundColor: '#2D9E6F',}})
+  navigation.setOptions({headerStyle: {backgroundColor: '#2D9E6F',}}) // set the header style to green
 
   return (
     <View style={styles.container}>

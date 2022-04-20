@@ -1,44 +1,44 @@
-import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import { StatusBar } from "expo-status-bar";    // import the StatusBar component
+import React, { useState } from "react";    // import useState
 import {
   Text,
   View,
   Image,
   TextInput,
   TouchableOpacity,
-} from "react-native";
+} from "react-native";  // import Text, View, Image, TextInput, TouchableOpacity
 
 
-import styles from "./ProfileStyle";
-import axios from "../../axios";
-import {useStorage} from "../../hook/useStorage";
+import styles from "./ProfileStyle";    // import styles from "./ProfileStyle.js"
+import axios from "../../axios";    // import axios
+import {useStorage} from "../../hook/useStorage";   // import useStorage from "../../hook/useStorage";
 
 
-export default function Profile ({ navigation }) {
+export default function Profile ({ navigation }) {  // create the ProfileScreen component
     
-    const [user, setUser] = useStorage('user')
+    const [user, setUser] = useStorage('user')  // create useStorage hook to get user data from asyncStorage
 
 
-    const [Clicked,setClicked] = useState(false)
+    const [Clicked,setClicked] = useState(false)    // create useState hook to know if the user cliked on the button
 
     
-    const [email, setEmail] = useState("")
-    const [firstname, setFirstname] = useState("")
-    const [name, setName] = useState("")
-    const [username, setusername] = useState("")
+    const [email, setEmail] = useState("")  // create useState hook to get the email
+    const [firstname, setFirstname] = useState("")// create useState hook to get the firstname
+    const [name, setName] = useState("")    // create useState hook to get the name
+    const [username, setusername] = useState("")    // create useState hook to get the username
 
-    const [ressource, setRessource] = useState(0)
+    const [ressource, setRessource] = useState(0)   // create useState hook to get the ressource
 
-    const [value] = useStorage("token")
+    const [value] = useStorage("token") // create useStorage hook to get the token
 
 
-    const clickModify = async () => {
-        if (!Clicked){
+    const clickModify = async () => {   // create the clickModify function
+        if (!Clicked){  // if the user didn't click on the button yet
             setClicked(true)
-        } else {
+        } else {    // if the user clicked on the button
 
             setClicked(false)
-            const {data} = await axios.post('/users/upDate',{
+            const {data} = await axios.post('/users/upDate',{   // send the data to the server and get the response in data
                 id: user._id, 
                 email: email===""?user.email: email,
                 username: username===""?user.username:username,
@@ -52,7 +52,6 @@ export default function Profile ({ navigation }) {
                     }
                 }
             )
-            console.log(data)
             setUser({...user,
                 email: email===""?user.email: email,
                 username: username===""?user.username:username,
@@ -62,9 +61,9 @@ export default function Profile ({ navigation }) {
             })
         }
     }
-    navigation.setOptions({headerStyle: {backgroundColor: '#2D9E6F',}})
+    navigation.setOptions({headerStyle: {backgroundColor: '#2D9E6F',}}) // set header color to green
 
-    console.log(user)
+    // the return of this function is the screen and print the user data and get the user data from the server and set it in the hooks
     return (
         user ? <View style={styles.container}>
             <StatusBar style="auto" />
